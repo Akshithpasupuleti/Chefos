@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap");
+@import "tailwindcss";
+
+:root {
+  --color-primary: #0f7a5e;
+  --color-primary-strong: #0a5b46;
+  --color-cream: #f6f3ea;
+  --color-accent: #e98f3f;
+  --color-text: #1f2a24;
+  --color-muted: #607065;
+  --color-border: #d6dfd8;
+  --color-surface: #ffffff;
+  --surface-shadow: 0 14px 36px rgba(16, 38, 28, 0.08);
+  --page-width: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  color: var(--color-text);
+  background:
+    radial-gradient(900px 480px at 15% -20%, rgba(233, 143, 63, 0.18), transparent 60%),
+    radial-gradient(880px 540px at 100% 0%, rgba(15, 122, 94, 0.16), transparent 62%),
+    linear-gradient(180deg, #fbfaf6 0%, #f6f3ea 100%);
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.serif-title {
+  font-family: "Source Serif 4", Georgia, serif;
+}
+
+.page-shell {
+  min-height: 100vh;
+}
+
+.page-container {
+  width: min(var(--page-width), 100% - 3rem);
+  margin: 0 auto;
+}
+
+.glass-surface {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: var(--surface-shadow);
+  backdrop-filter: blur(8px);
+}
+
+.panel {
+  background: var(--color-surface);
+  border: 1px solid color-mix(in oklab, var(--color-border) 82%, white);
+  box-shadow: var(--surface-shadow);
+  border-radius: 22px;
+}
+
+.soft-border {
+  border: 1px solid color-mix(in oklab, var(--color-border) 82%, white);
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    width: min(var(--page-width), 100% - 1.5rem);
+  }
+}
