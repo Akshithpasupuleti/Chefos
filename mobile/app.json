@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "name": "Chefos User",
+    "slug": "chefos-user",
+    "version": "1.0.0",
+    "extra": {
+      "eas": {
+        "projectId": "04e03897-4c07-4e43-841b-bcdc1ad682bf"
+      }
+    },
+    "android": {
+      "package": "com.chiketan.chefosuser"
+    },
+    "plugins": [
+      "expo-font"
+    ]
+  }
+}

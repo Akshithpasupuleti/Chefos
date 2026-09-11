@@ -1,0 +1,50 @@
+const appVariant = process.env.APP_VARIANT === "chef" ? "chef" : "user"
+
+const configByVariant = {
+  user: {
+    name: "Chefos",
+    slug: "chefos-user",
+    scheme: "chefos-user",
+    description: "Chefos customer app",
+  },
+  chef: {
+    name: "Chefos Partner",
+    slug: "chefos-chef",
+    scheme: "chefos-chef",
+    description: "Chefos chef partner app",
+  },
+}
+
+const selected = configByVariant[appVariant]
+
+module.exports = {
+  expo: {
+    name: selected.name,
+    slug: selected.slug,
+    version: "1.0.0",
+    orientation: "portrait",
+    userInterfaceStyle: "light",
+    description: selected.description,
+    scheme: selected.scheme,
+    splash: {
+      resizeMode: "contain",
+      backgroundColor: "#f6f3ea",
+    },
+    assetBundlePatterns: ["**/*"],
+    ios: {
+      supportsTablet: true,
+      bundleIdentifier: appVariant === "chef" ? "com.chefos.partner" : "com.chefos.user",
+    },
+    android: {
+      package: appVariant === "chef" ? "com.chefos.partner" : "com.chefos.user",
+      adaptiveIcon: {
+        backgroundColor: "#f6f3ea",
+      },
+      edgeToEdgeEnabled: true,
+    },
+    extra: {
+      apiBaseUrl: process.env.EXPO_PUBLIC_API_BASE_URL || "http://localhost:8000/api/",
+      appVariant,
+    },
+  },
+}
